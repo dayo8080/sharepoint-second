@@ -1,10 +1,10 @@
 import * as React from 'react';
-import styles from './HelloWorld.module.scss';
-import type { IHelloWorldProps } from './IHelloWorldProps';
+import styles from './OrigamiCarousel.module.scss';
+import type { IOrigamiCarouselProps } from './IOrigamiCarouselProps';
 import { escape } from '@microsoft/sp-lodash-subset';
 
-export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
-  public render(): React.ReactElement<IHelloWorldProps> {
+export default class OrigamiCarousel extends React.Component<IOrigamiCarouselProps, {}> {
+  public render(): React.ReactElement<IOrigamiCarouselProps> {
     const {
       description,
       isDarkTheme,
@@ -14,7 +14,7 @@ export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
     } = this.props;
 
     return (
-      <section className={`${styles.helloWorld} ${hasTeamsContext ? styles.teams : ''}`}>
+      <section className={`${styles.origamiCarousel} ${hasTeamsContext ? styles.teams : ''}`}>
         <div className={styles.welcome}>
           <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
           <h2>Well done, {escape(userDisplayName)}!</h2>
@@ -31,6 +31,9 @@ export default class HelloWorld extends React.Component<IHelloWorldProps, {}> {
             <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
             <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
             <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
+            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
+            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
+            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
             <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
           </ul>
         </div>

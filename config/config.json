@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/helloWorld/HelloWorldWebPart.manifest.json"
         }
       ]
+    },
+    "origami-carousel-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/origamiCarousel/OrigamiCarouselWebPart.js",
+          "manifest": "./src/webparts/origamiCarousel/OrigamiCarouselWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js"
+    "HelloWorldWebPartStrings": "lib/webparts/helloWorld/loc/{locale}.js",
+    "OrigamiCarouselWebPartStrings": "lib/webparts/origamiCarousel/loc/{locale}.js"
   }
 }
