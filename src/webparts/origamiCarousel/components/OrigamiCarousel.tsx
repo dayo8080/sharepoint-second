@@ -1,43 +1,34 @@
 import * as React from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import styles from './OrigamiCarousel.module.scss';
-import type { IOrigamiCarouselProps } from './IOrigamiCarouselProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+import { IOrigamiCarouselProps } from './IOrigamiCarouselProps';
 
-export default class OrigamiCarousel extends React.Component<IOrigamiCarouselProps, {}> {
-  public render(): React.ReactElement<IOrigamiCarouselProps> {
-    const {
-      description,
-      isDarkTheme,
-      environmentMessage,
-      hasTeamsContext,
-      userDisplayName
-    } = this.props;
+const OrigamiCarousel: React.FC<IOrigamiCarouselProps> = (props) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
 
-    return (
-      <section className={`${styles.origamiCarousel} ${hasTeamsContext ? styles.teams : ''}`}>
-        <div className={styles.welcome}>
-          <img alt="" src={isDarkTheme ? require('../assets/welcome-dark.png') : require('../assets/welcome-light.png')} className={styles.welcomeImage} />
-          <h2>Well done, {escape(userDisplayName)}!</h2>
-          <div>{environmentMessage}</div>
-          <div>Web part property value: <strong>{escape(description)}</strong></div>
+  return (
+    <div className={styles.origamiCarousel}>
+      <Slider {...settings}>
+        <div>
+          <img src="https://via.placeholder.com/600x400" alt="Slide 1" />
         </div>
         <div>
-          <h3>Welcome to SharePoint Framework!</h3>
-          <p>
-            The SharePoint Framework (SPFx) is a extensibility model for Microsoft Viva, Microsoft Teams and SharePoint. It&#39;s the easiest way to extend Microsoft 365 with automatic Single Sign On, automatic hosting and industry standard tooling.
-          </p>
-          <h4>Learn more about SPFx development:</h4>
-          <ul className={styles.links}>
-            <li><a href="https://aka.ms/spfx" target="_blank" rel="noreferrer">SharePoint Framework Overview</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-graph" target="_blank" rel="noreferrer">Use Microsoft Graph in your solution</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-teams" target="_blank" rel="noreferrer">Build for Microsoft Teams using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-viva" target="_blank" rel="noreferrer">Build for Microsoft Viva Connections using SharePoint Framework</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-store" target="_blank" rel="noreferrer">Publish SharePoint Framework applications to the marketplace</a></li>
-            <li><a href="https://aka.ms/spfx-yeoman-api" target="_blank" rel="noreferrer">SharePoint Framework API reference</a></li>
-            <li><a href="https://aka.ms/m365pnp" target="_blank" rel="noreferrer">Microsoft 365 Developer Community</a></li>
-          </ul>
+          <img src="https://via.placeholder.com/600x400" alt="Slide 2" />
         </div>
-      </section>
-    );
-  }
+        <div>
+          <img src="https://via.placeholder.com/600x400" alt="Slide 3" />
+        </div>
+      </Slider>
+    </div>
+  );
 }
+
+export default OrigamiCarousel;
